@@ -2,20 +2,12 @@
   <h1>ユーザーの新規登録</h1>
 </div>
 
-<% if @user.errors.any? %>
-  <div id="error_explanation" class="alert alert-warning">
-    <ul class="mb-0">
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <div class='row justify-content-center'>
   <div class='col-4-sm card p-4'>
 
     <%= form_with(model: @user, local: true) do |f| %>
+    
+      <%= render 'shared/error-messages', model: f.object %>
     
       <div class='form-group'>
         <%= f.label :name, 'ユーザー名' %>
