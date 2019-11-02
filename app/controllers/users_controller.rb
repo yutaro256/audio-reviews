@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = 'ユーザーを登録しました'
+      flash[:success] = "ユーザーを登録しました#{@user.image}"
       redirect_to @user
     else
       flash[:danger] = 'ユーザーの登録に失敗しました'
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def destroy
