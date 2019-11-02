@@ -12,7 +12,21 @@ class User < ApplicationRecord
 # imageカラムにアップローダーの機能を付与
   mount_uploader :image, ImageUploader
   
+# user,itemテーブル同士の関係性
   has_many :likes
   has_many :interesting, through: :likes, source: :item
+  
+  def add_item(target_item)
+    self.likes.find_or_create_by(item_id: target_item.id)
+  end
+  
+  def remove_item(target_item)
+    like_item = self.likes.find_by(item_id: target_item.id)
+    like_item.destroy if like_item
+  end
+  
+  def interesting?(target_item)
+    self.interesting.include?(target_item)
+  end
     
 end
