@@ -8,5 +8,5 @@ class Item < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   has_many :likes
-  has_many :interested, through: :likes, resource: :user
+  has_many :interested, through: :likes, source: :user
 end
