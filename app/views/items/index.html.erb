@@ -1,10 +1,1 @@
-<ul class='list-unstyled'>
-  <% @items.each do |item|%>
-    <li>
-      <%= image_tag item.image.url if item.image? %>
-      <%= link_to "#{item.name_item}(#{item.maker})", item %>
-      <%= "価格：#{item.price}円" if item.price %>
-      <%= "〇〇件のレビュー" %>
-    </li>
-  <% end %>
-</ul>
+<%= render 'shared/item_index', items: @items %>
