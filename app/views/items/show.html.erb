@@ -1,2 +1,7 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div>
+    <%= image_tag @item.image.url if @item.image? %>
+    <%= @item.name_item%>
+    <%= "メーカー名：#{@item.maker}" %>
+    <%= "価格：#{@item.price}" if @item.price?%>
+    <%= "商品の説明：#{@item.outline}" if @item.outline%>
+</div>
