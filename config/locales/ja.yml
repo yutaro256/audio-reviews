@@ -3,9 +3,12 @@ ja:
 
 # フォームの属性名の日本語化
   attributes:
-    name:   名前
+    name:   ユーザー名
     email: メールアドレス
     password: パスワード
+    name_item:  商品名
+    maker:  メーカー名
+    price:  値段
 
   activerecord:
     errors:

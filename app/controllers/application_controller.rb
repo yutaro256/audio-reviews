@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
+#  def counts(item)
+#    @count_reviews = item.reviews.count
+#  end
+  
 end
