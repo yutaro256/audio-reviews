@@ -5,3 +5,5 @@
     <%= "価格：#{@item.price}" if @item.price?%>
     <%= "商品の説明：#{@item.outline}" if @item.outline%>
 </div>
+
+<%= render 'shared/like_button', item: @item %>

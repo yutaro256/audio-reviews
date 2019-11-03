@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -6,6 +8,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
   resources :items
+  resources :likes, only: [:create, :destroy]
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

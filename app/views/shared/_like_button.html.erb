@@ -1,0 +1,11 @@
+<% if current_user.interesting?(item)%>
+  <%= form_with(model: current_user.likes.find_by(item_id: item.id), local: true, method: :delete) do |f| %>
+    <%= hidden_field_tag :item_id, item.id %>
+    <%= f.submit '気になるリストから削除' %>
+  <% end %>
+<% else %>
+  <%= form_with(model: current_user.likes.build, local: true) do |f| %>
+    <%= hidden_field_tag :item_id, item.id %>
+    <%= f.submit '気になるリストへ追加' %>
+  <% end %>
+<% end %>
