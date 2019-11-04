@@ -31,6 +31,12 @@ class ItemsController < ApplicationController
   def destroy
   end
   
+# ある１つの商品に対してのレビュー作成ページ
+  def new_review
+    @item = Item.find(params[:id])
+    @review = Review.new
+  end
+  
   private
   
   def item_params

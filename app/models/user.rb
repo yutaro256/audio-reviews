@@ -30,5 +30,9 @@ class User < ApplicationRecord
   def interesting?(target_item)
     self.interesting.include?(target_item)
   end
+  
+  def post_revies(target_item)
+    self.reviews.find_or_create_by(item_id: target_item.id)
+  end
     
 end
