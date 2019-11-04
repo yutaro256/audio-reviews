@@ -31,8 +31,8 @@ class User < ApplicationRecord
     self.interesting.include?(target_item)
   end
   
-  def post_revies(target_item)
-    self.reviews.find_or_create_by(item_id: target_item.id)
-  end
+#  def post_revies(target_item)
+#   self.reviews.find_or_create_by(item_id: target_item)
+#  end
     
 end

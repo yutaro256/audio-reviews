@@ -9,6 +9,8 @@ ja:
     name_item:  商品名
     maker:  メーカー名
     price:  値段
+    title:  レビューのタイトル
+    content:  レビューの内容
 
   activerecord:
     errors:
