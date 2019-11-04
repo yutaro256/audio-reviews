@@ -1,0 +1,11 @@
+<ul class='list-unstyled'>
+  <% reviews.each do |review|%>
+    <li>
+      <a href="/reviews/<%= review.id %>">
+        <p>タイトル：<%= review.title %></p>
+        <p>評価：<%= review.rating %></p>
+        <p>レビュー内容：<%= review.content %></p>,
+      </a>
+    </li>
+  <% end %>
+</ul>
