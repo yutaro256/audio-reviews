@@ -12,15 +12,24 @@ class UsersController < ApplicationController
       flash[:success] = "ユーザーを登録しました"
       redirect_to @user
     else
-      flash[:danger] = 'ユーザーの登録に失敗しました'
+      flash.now[:danger] = 'ユーザーの登録に失敗しました'
       render :new
     end
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = 'ユーザー情報を更新しました'
+      redirect_to @user
+    else
+      flash.now[:danger] = 'ユーザー情報を更新出来ませんでした'
+      render :edit
+    end
   end
 
   def show

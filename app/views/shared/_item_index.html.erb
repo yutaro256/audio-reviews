@@ -1,7 +1,11 @@
 <ul class='list-unstyled'>
   <% items.each do |item|%>
     <li>
-      <%= image_tag item.image.url if item.image? %>
+      <% if item.image? %>
+        <%= image_tag item.image.url %>
+      <% else %>
+        <%= image_tag 'noimage.png' %>
+      <% end %>
       <%= link_to "#{item.name_item}(#{item.maker})", item %>
       <%= "価格：#{item.price}円" if item.price %>
       <%= "〇〇件のレビュー" %>
