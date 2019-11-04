@@ -12,6 +12,8 @@ class User < ApplicationRecord
 # imageカラムにアップローダーの機能を付与
   mount_uploader :image, ImageUploader
   
+  has_many :reviews
+  
 # user,itemテーブル同士の関係性
   has_many :likes
   has_many :interesting, through: :likes, source: :item
