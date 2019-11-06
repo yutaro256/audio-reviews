@@ -14,6 +14,6 @@
   <%= render 'shared/like_button', item: @item %>
 <% end %>
 
-<%= link_to 'この商品のレビューを書く', new_review_item_path %>
+<%= link_to 'この商品のレビューを書く', new_review_item_path, class: 'btn btn-secondary' %>
 
 <%= render 'shared/review_index', reviews: @reviews %>
