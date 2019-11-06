@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   
+  before_action :correct_user, only: [:edit, :destroy]
+  
   def index
     @reviews = Review.all.order(id: :desc)
   end
@@ -20,6 +22,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @review = Review.find(params[:id])
   end
 
   def edit
@@ -29,12 +32,23 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    flash[:success] = 'メッセージを削除しました。'
+    redirect_to root_url
   end
   
   private
   
   def reviews_params
     params.require(:review).permit(:title, :content, :rating)
+  end
+  
+  def correct_user
+    @review = current_user.reviews.find_by(id: params[:id])
+    unless @review
+      redirect_to root_url
+    end
   end
   
 end

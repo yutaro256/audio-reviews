@@ -1,2 +1,8 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<p>タイトル：<%= @review.title %></p>
+<p>評価：<%= @review.rating %></p>
+<p>レビュー内容：<%= @review.content %></p>
+
+<% if authority? %>
+<%= link_to '編集', edit_review_path(@review) %>
+<%= link_to '削除', review_path(@review), method: :delete %>
+<% end %>

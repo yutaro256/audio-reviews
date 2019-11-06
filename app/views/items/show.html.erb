@@ -10,6 +10,10 @@
     <%= "商品の説明：#{@item.outline}" if @item.outline%>
 </div>
 
-<%= render 'shared/like_button', item: @item %>
+<% if logged_in? %>
+  <%= render 'shared/like_button', item: @item %>
+<% end %>
 
 <%= link_to 'この商品のレビューを書く', new_review_item_path %>
+
+<%= render 'shared/review_index', reviews: @reviews %>

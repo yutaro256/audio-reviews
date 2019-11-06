@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  
+  before_action :require_login, only: [:new_review, :new]
+  
   def index
     @items = Item.all.order(id: :desc)
   end
@@ -20,6 +23,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @reviews = @item.reviews
   end
 
   def edit
