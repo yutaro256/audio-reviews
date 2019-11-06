@@ -9,11 +9,11 @@
 </div>
 
 <div>
-  気になるリスト
+  <%= link_to '気になるリスト', @user %>
 </div>
-
-<%= render 'shared/item_index', items: @items %>
 
 <div>
-  <%= link_to '自分の投稿', review_user_path(@user) %>
+  自分の投稿
 </div>
+
+<%= render 'shared/review_index', reviews: @reviews %>

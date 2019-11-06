@@ -6,12 +6,18 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   root to: 'toppages#top'
   
-  resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
+    member do
+      get :review
+    end
+  end
+  
   resources :items do
     member do
       get :new_review
     end
   end
+  
   resources :likes, only: [:create, :destroy]
   resources :reviews, only: [:index, :create, :edit, :update, :show, :destroy]
   

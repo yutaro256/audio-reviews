@@ -40,6 +40,11 @@ class UsersController < ApplicationController
   def destroy
   end
   
+  def review
+    @user = User.find(params[:id])
+    @reviews = @user.reviews.order(id: :desc)
+  end
+  
   private
   
   def user_params

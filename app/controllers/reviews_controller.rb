@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
       flash[:success] = 'レビューの投稿に成功しました'
       redirect_to @review
     else
-      flash[:danger] = 'レビューの投稿に失敗しました'
+      flash.now[:danger] = 'レビューの投稿に失敗しました'
 # 　  renderした時の読み込み用
       @item = Item.find(params[:item_id])
       render 'items/new_review'
@@ -26,9 +26,18 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
   end
 
   def update
+    @review = Review.find(params[:id])
+    if @review.update(reviews_params)
+      flash[:success] = 'レビューを更新しました'
+      redirect_to @review
+    else
+      flash.now[:danger] = 'レビューを更新出来ませんでした'
+      render :edit
+    end
   end
 
   def destroy
