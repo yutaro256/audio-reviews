@@ -1,10 +1,20 @@
 <ul class='list-unstyled'>
   <% reviews.each do |review|%>
     <li>
+      <a href='/users/<%= review.user.id %>'>
+        <div class='h-25'>
+          <% if review.user.image? %>
+            <%= image_tag review.user.image.url, class: 'rounded-circle img-responsive' %>
+          <% else %>
+            <%= image_tag 'default.jpg', class: 'rounded-circle img-responsive' %>
+          <% end %>
+        </div>
+        <p><%= review.user.name%></p>
+      </a>
       <a href="/reviews/<%= review.id %>">
         <p>タイトル：<%= review.title %></p>
         <p>評価：<%= review.rating %></p>
-        <p>レビュー内容：<%= review.content %></p>,
+        <p>レビュー内容：<%= review.content %></p>
       </a>
     </li>
   <% end %>

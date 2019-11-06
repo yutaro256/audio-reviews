@@ -1,2 +1,4 @@
-<h1>Toppages#top</h1>
-<p>Find me in app/views/toppages/top.html.erb</p>
+<h1>新着レビュー</h1>
+<%= render 'shared/review_index', reviews: @reviews %>
+
+<%= link_to 'レビュー一覧へ', reviews_path %>
