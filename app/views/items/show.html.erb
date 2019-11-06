@@ -1,6 +1,6 @@
 <div>
   <% if @item.image? %>
-    <%= image_tag @item.image.url %>
+    <%= image_tag @item.image.item_thumb.url %>
   <% else %>
     <%= image_tag 'noimage.png' %>
   <% end %>
