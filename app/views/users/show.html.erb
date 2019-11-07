@@ -15,5 +15,5 @@
 <%= render 'shared/item_index', items: @items %>
 
 <div>
-  <%= link_to '自分の投稿', review_user_path(@user) %>
+  <%= link_to "#{@user.name}さんの投稿", review_user_path(@user) %>
 </div>
