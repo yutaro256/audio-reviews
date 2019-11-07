@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   
   before_action :require_login, only: [:new_review, :new]
+  before_action :confirm_admin, only: [:edit, :destroy]
   
   def index
     @items = Item.all.order(id: :desc)
@@ -36,12 +37,16 @@ class ItemsController < ApplicationController
       flash[:success] = '商品情報を更新しました'
       redirect_to @item
     else
-      flash[:danger] = '商品情報を更新できませんでした'
+      flash.now[:danger] = '商品情報を更新できませんでした'
       render :edit
     end
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    flash[:success] = '商品を削除しました'
+    redirect_to items_url
   end
   
 # ある１つの商品に対してのレビュー作成ページ

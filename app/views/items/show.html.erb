@@ -19,7 +19,7 @@
 <%= render 'shared/review_index', reviews: @reviews %>
 
 <% if logged_in? %>
-  <% unless current_user.admin? %>
+  <% if current_user.admin? %>
     <%= link_to '編集', edit_item_path(@item) %>
     <%= link_to '削除', item_path(@item), method: :delete %>
   <% end %>
