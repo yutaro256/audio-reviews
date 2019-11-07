@@ -1,6 +1,5 @@
-<p>検索</p>
 <%= form_tag(items_path,:method => 'get') do %>
-  <%= text_field_tag :search %>
+  <%= text_field_tag :search, '', placeholder: '商品名またはメーカー名を検索', class: 'form-control' %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
 
