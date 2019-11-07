@@ -4,7 +4,11 @@ class ItemsController < ApplicationController
   before_action :confirm_admin, only: [:edit, :destroy]
   
   def index
-    @items = Item.all.order(id: :desc)
+    if params[:search]
+      @items = Item.all.order(id: :desc).where("(name_item LIKE ?) OR (maker LIKE ?)", "%#{params[:search]}%", "%#{params[:search]}%")
+    else
+      @items = Item.all.order(id: :desc)
+    end
   end
 
   def new

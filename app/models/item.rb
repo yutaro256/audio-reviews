@@ -10,4 +10,5 @@ class Item < ApplicationRecord
   has_many :reviews
   has_many :likes
   has_many :interested, through: :likes, source: :user
+
 end

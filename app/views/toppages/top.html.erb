@@ -1,3 +1,9 @@
+<p>検索</p>
+<%= form_tag(items_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+
 <h1 class='text-center m-5'>新着レビュー</h1>
 <%= render 'shared/review_index', reviews: @reviews %>
 
