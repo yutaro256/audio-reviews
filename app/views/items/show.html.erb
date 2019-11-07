@@ -17,3 +17,10 @@
 <%= link_to 'この商品のレビューを書く', new_review_item_path, class: 'btn btn-secondary' %>
 
 <%= render 'shared/review_index', reviews: @reviews %>
+
+<% if logged_in? %>
+  <% unless current_user.admin? %>
+    <%= link_to '編集', edit_item_path(@item) %>
+    <%= link_to '削除', item_path(@item), method: :delete %>
+  <% end %>
+<% end %>

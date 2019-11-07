@@ -27,9 +27,18 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      flash[:success] = '商品情報を更新しました'
+      redirect_to @item
+    else
+      flash[:danger] = '商品情報を更新できませんでした'
+      render :edit
+    end
   end
 
   def destroy
