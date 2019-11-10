@@ -1,9 +1,22 @@
-<%= form_tag(items_path,:method => 'get') do %>
-  <%= text_field_tag :search, '', placeholder: '商品名またはメーカー名を検索', class: 'form-control' %>
-  <%= submit_tag 'Search', :name => nil %>
-<% end %>
-
-<h1 class='text-center m-5'>新着レビュー</h1>
-<%= render 'shared/review_index', reviews: @reviews %>
-
-<%= link_to 'レビュー一覧へ', reviews_path, class: 'btn btn-primary' %>
+<div class='container'>
+  <%= form_tag(items_path,:method => 'get') do %>
+    <div class='input-group m-3'>
+      <%= text_field_tag :search, '', placeholder: '商品名またはメーカー名を検索', class: 'form-control' %>
+      <span class='input-group-btn'>
+        <%= button_tag '検索', :name => nil, class: 'btn btn-primary' %>
+      </span>
+    </div>
+  <% end %>
+  
+  <section>
+    <heading class='text-center m-5'>
+      <h2>Audio Reviewsとは</h2>
+      <p class='text-muted'>イヤホンやスピーカーなどのオーディオ機器を登録し、<br>レビューを投稿できるWebサイトです。</p>
+    </heading>
+  </section>
+  
+  <h1 class='text-center m-5'>新着レビュー</h1>
+  <%= render 'shared/review_index', reviews: @reviews %>
+  
+  <%= link_to 'レビュー一覧へ', reviews_path, class: 'btn btn-primary' %>
+</div>

@@ -1,26 +1,35 @@
-<div>
-  <% if @item.image? %>
-    <%= image_tag @item.image.item_thumb.url %>
-  <% else %>
-    <%= image_tag 'noimage.png' %>
+<div class='container'>
+  <div class='row align-items-center'>
+    <div class='col-sm-3'>
+      <% if @item.image? %>
+        <%= image_tag @item.image.item_thumb.url %>
+      <% else %>
+        <%= image_tag 'noimage.png' %>
+      <% end %>
+    </div>
+    <div class='col-sm-9'>
+      <h5><%= @item.name_item%></h5>
+      <div class='text-info'><%= "メーカー名：#{@item.maker}" %></div>
+      <div class='text-danger'><%= "価格：#{@item.price}円" if @item.price?%></div>
+      <% if logged_in? %>
+        <%= render 'shared/like_button', item: @item %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+      <%= "商品の説明：#{@item.outline}" if @item.outline%>
+  </div>
+  
+  <%= link_to 'この商品のレビューを書く', new_review_item_path, class: 'btn btn-secondary m-3' %>
+  
+  <div><%= @item.reviews.count %>件のレビューがあります</div>
+  
+  <%= render 'shared/review_index', reviews: @reviews %>
+  
+  <% if logged_in? %>
+    <% if current_user.admin? %>
+      <%= link_to '編集', edit_item_path(@item) %>
+      <%= link_to '削除', item_path(@item), method: :delete %>
+    <% end %>
   <% end %>
-    <%= @item.name_item%>
-    <%= "メーカー名：#{@item.maker}" %>
-    <%= "価格：#{@item.price}" if @item.price?%>
-    <%= "商品の説明：#{@item.outline}" if @item.outline%>
 </div>
-
-<% if logged_in? %>
-  <%= render 'shared/like_button', item: @item %>
-<% end %>
-
-<%= link_to 'この商品のレビューを書く', new_review_item_path, class: 'btn btn-secondary' %>
-
-<%= render 'shared/review_index', reviews: @reviews %>
-
-<% if logged_in? %>
-  <% if current_user.admin? %>
-    <%= link_to '編集', edit_item_path(@item) %>
-    <%= link_to '削除', item_path(@item), method: :delete %>
-  <% end %>
-<% end %>

@@ -1,19 +1,21 @@
-<ul class='list-unstyled row'>
-  <% items.each do |item|%>
-      <li class='col-3 card p-2'>
-        <a href='/items/<%= item.id %>' class='btn btn-default'>
-            <% if item.image? %>
-              <%= image_tag item.image.item_thumb.url %>
-            <% else %>
-              <%= image_tag 'noimage.png' %>
-            <% end %>
-          <ul class='list-unstyled'>
-            <li class='text-left ml-5'><%= item.name_item %></li>
-            <li class='text-left ml-5'>メーカ名：<%= item.maker %></li>
-            <li class='text-left ml-5'><%= "価格：#{item.price}円" if item.price %></li>
-            <li class='text-left ml-5'><%= "#{item.reviews.count}件のレビュー" %></li>
-          </ul>
-        </a>
-      </li>
-  <% end %>
-</ul>
+<div class='container'>
+  <ul class='list-unstyled row'>
+    <% items.each do |item|%>
+        <li class='col-sm-3 card p-2'>
+          <a href='/items/<%= item.id %>' class='btn btn-default'>
+              <% if item.image? %>
+                <%= image_tag item.image.item_thumb.url %>
+              <% else %>
+                <%= image_tag 'noimage.png' %>
+              <% end %>
+            <ul class='list-unstyled'>
+              <li class='text-left ml-5 mb-2'><%= item.name_item.truncate(80) %></li>
+              <li class='text-left ml-5'>メーカ名：<%= item.maker %></li>
+              <li class='text-left ml-5'><%= "価格：#{item.price}円" if item.price %></li>
+              <li class='text-left ml-5'><%= "#{item.reviews.count}件のレビュー" %></li>
+            </ul>
+          </a>
+        </li>
+    <% end %>
+  </ul>
+</div>
