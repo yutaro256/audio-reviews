@@ -15,6 +15,7 @@ ja:
     name:   ユーザー名
     email: メールアドレス
     password: パスワード
+    password_confirmation: 確認用パスワード 
     name_item:  商品名
     maker:  メーカー名
     price:  値段
