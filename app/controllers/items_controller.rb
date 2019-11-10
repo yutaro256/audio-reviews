@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   
   before_action :require_login, only: [:new_review, :new]
   before_action :confirm_admin, only: [:edit, :destroy]
+#  before_action :average_rating, only: [:index, :show]
   
   def index
     if params[:search]
@@ -29,6 +30,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @reviews = @item.reviews
+    average_rating(@item)
   end
 
   def edit
