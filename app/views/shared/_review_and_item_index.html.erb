@@ -1,0 +1,40 @@
+<ul class='list-unstyled'>
+  <% reviews.each do |review|%>
+    <% item = review.item %>
+    <li class='card'>
+      <div class='row'>
+        <div class='col-sm-3'>
+          <a href='/items/<%= item.id %>' class='btn btn-default'>
+            <% if item.image? %>
+              <%= image_tag item.image.item_thumb.url %>
+            <% else %>
+              <%= image_tag 'noimage.png' %>
+            <% end %>
+          </a>
+        </div>
+        <div class='col-sm-3'>
+          <a href='/items/<%= item.id %>' class='btn btn-default text-left'>
+            <h5><%= item.name_item.truncate(50) %></h5>
+            <div><%= "メーカー名：#{item.maker}" %></div>
+            <div class='text-danger'><%= "価格：#{item.price}円" if item.price?%></div>
+          </a>
+        </div>
+        <div class='col-sm-6'>
+          <a href='/users/<%= review.user.id %>' class='btn btn-default'>
+              <% if review.user.image? %>
+                <%= image_tag review.user.image.url, class: 'rounded-circle' %>
+              <% else %>
+                <%= image_tag 'default.jpg', class: 'rounded-circle' %>
+              <% end %>
+            <%= review.user.name%>
+          </a><br>
+          <a href="/reviews/<%= review.id %>" class='btn btn-default media-body'>
+            <h5 class='float-left mr-3'>評価：<%= review.rating %></h5>
+            <h5 class='float-left'><%= review.title %></h5><br>
+            <div class='float-left'><%= review.content.truncate(95) %></div>
+          </a>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
