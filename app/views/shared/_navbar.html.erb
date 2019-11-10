@@ -14,7 +14,7 @@
         <li class='nav-item'><%= link_to '商品一覧', items_path, class: 'nav-link' %></li>
         <li class='nav-item'><%= link_to 'レビュー一覧', reviews_path, class: 'nav-link' %></li>
         <li class='nav-item'><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
-        <li class='nav-item'><%= link_to "#{current_user.name}", current_user, class: 'nav-link' %></li>
+        <li class='nav-item'><%= link_to "マイページ", current_user, class: 'nav-link' %></li>
       </ul>
     </div>
   <% else %>

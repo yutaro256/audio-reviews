@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   before_action :correct_user, only: [:edit, :destroy]
   
   def index
-    @reviews = Review.all.order(id: :desc)
+    @reviews = Review.all.order(id: :desc).page(params[:page]).per(20)
   end
 
   def create

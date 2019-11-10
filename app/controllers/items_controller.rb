@@ -5,9 +5,9 @@ class ItemsController < ApplicationController
   
   def index
     if params[:search]
-      @items = Item.all.order(id: :desc).where("(name_item LIKE ?) OR (maker LIKE ?)", "%#{params[:search]}%", "%#{params[:search]}%")
+      @items = Item.all.order(id: :desc).page(params[:page]).per(20).where("(name_item LIKE ?) OR (maker LIKE ?)", "%#{params[:search]}%", "%#{params[:search]}%")
     else
-      @items = Item.all.order(id: :desc)
+      @items = Item.all.order(id: :desc).page(params[:page]).per(20)
     end
   end
 

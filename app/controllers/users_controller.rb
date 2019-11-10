@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @items = @user.interesting.order(id: :desc)
+    @items = @user.interesting.order(id: :desc).page(params[:page]).per(20)
   end
 
   def destroy
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   
   def review
     @user = User.find(params[:id])
-    @reviews = @user.reviews.order(id: :desc)
+    @reviews = @user.reviews.order(id: :desc).page(params[:page]).per(20)
   end
   
   private
