@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :require_login, only: [:edit, :show]
-  before_action :afte, only: [:edit]
+  before_action :confirm_user, only: [:edit]
   
   def new
     @user = User.new
@@ -52,7 +51,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
   
-  def afte
+  def confirm_user
     unless correct_user?
       redirect_to root_url
     end

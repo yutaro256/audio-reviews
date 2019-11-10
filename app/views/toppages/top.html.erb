@@ -14,19 +14,19 @@
       <p class='text-muted'>イヤホンやスピーカーなどのオーディオ機器を登録し、<br>レビューを投稿できるWebサイトです。</p>
     </heading>
     <div class='row justify-content-center'>
-      <div class='col-sm-4 card'>
+      <div class='col-sm-4 card mb-3'>
         <h5 class='card-title card-header'>登録不要で</h5>
         <p>ユーザー登録なし（非ログイン状態）では、サイト内商品の検索、商品情報やレビューの閲覧が可能です。</p>
       </div>
-      <div class='col-sm-4 card'>
+      <div class='col-sm-4 card mb-3'>
         <h5 class='card-title card-header'>ログインすると</h5>
         <p>ログイン状態では、閲覧に加えて商品の「気になるリスト」への登録、商品に対するレビューの投稿や編集、商品の登録などが可能となります。</p>
       </div>
     </div>
     <% unless logged_in? %>
-    <div class='row justify-content-center m-3'>
-      <%= link_to '新規登録はこちら', new_user_path, class: 'col-sm-3 btn btn-primary' %>
-      <%= link_to 'ログイン', login_path, class: 'col-sm-3 offset-sm-1 btn btn-success' %>
+    <div class='row justify-content-center'>
+      <%= link_to '新規登録はこちら', new_user_path, class: 'col-sm-3 btn btn-primary mt-3' %>
+      <%= link_to 'ログイン（登録済の方）', login_path, class: 'col-sm-3 offset-sm-1 btn btn-success mt-3' %>
     </div>
     <% end %>
   </section>
