@@ -1,6 +1,7 @@
 <ul class='list-unstyled'>
   <% reviews.each do |review|%>
     <% item = review.item %>
+    <% average_rating(item) %>
     <li class='card'>
       <div class='row'>
         <div class='col-sm-3'>
@@ -17,6 +18,7 @@
             <h5><%= item.name_item.truncate(50) %></h5>
             <div><%= "メーカー名：#{item.maker}" %></div>
             <div class='text-danger'><%= "価格：#{item.price}円" if item.price?%></div>
+            <div class='text-info'><%= "平均評価：#{@rating}" %></div>
           </a>
         </div>
         <div class='col-sm-6'>
