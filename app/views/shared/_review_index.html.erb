@@ -1,7 +1,7 @@
 <ul class='list-unstyled'>
   <% reviews.each do |review|%>
-    <li class='media card m-2'>
-      <a href='/users/<%= review.user.id %>' class='btn btn-default'>
+    <li class='media card m-3 bg-light'>
+      <a href='/users/<%= review.user.id %>' class='btn btn-light'>
           <% if review.user.image? %>
             <%= image_tag review.user.image.user_thumb.url, class: 'rounded-circle' %>
           <% else %>
@@ -9,7 +9,7 @@
           <% end %>
         <%= review.user.name%>
       </a>
-      <a href="/reviews/<%= review.id %>" class='btn btn-default'>
+      <a href="/reviews/<%= review.id %>" class='btn btn-light'>
         <h5 class='float-left mr-3'>評価：<%= review.rating %></h5>
         <h5 class='float-left'><%= review.title %></h5><br>
         <div class='float-left text-left'><%= review.content %></div>
