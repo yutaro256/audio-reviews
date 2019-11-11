@@ -1,18 +1,39 @@
 <div class='container'>
-  <div class='media card m-2'>
-    <a href='/users/<%= @review.user.id %>' class='btn btn-default bd-placeholder-img'>
-      <% if @review.user.image? %>
-        <%= image_tag @review.user.image.url, class: 'rounded-circle' %>
-      <% else %>
-        <%= image_tag 'default.jpg', class: 'rounded-circle' %>
-      <% end %>
-      <%= @review.user.name%>
-    </a>
-    <div class='media-body'>
-      <h5 class='float-left mr-3'>評価：<%= @review.rating %></h5>
-      <h5 class='float-left'><%= @review.title %></h5><br>
-      <div class='float-left'><%= @review.content %></div>
-    </div>
+  <div class='card m-2'>
+      <div class='row bg-light'>
+        <div class='col-sm-3'>
+          <a href='/items/<%= @item.id %>' class='btn btn-light'>
+            <% if @item.image? %>
+              <%= image_tag @item.image.item_thumb.url %>
+            <% else %>
+              <%= image_tag 'noimage.png' %>
+            <% end %>
+          </a>
+        </div>
+        <div class='col-sm-3'>
+          <a href='/items/<%= @item.id %>' class='btn btn-light text-left'>
+            <h5><%= @item.name_item.truncate(50) %></h5>
+            <div><%= "メーカー名：#{@item.maker}" %></div>
+            <div class='text-danger'><%= "価格：#{@item.price}円" if @item.price?%></div>
+            <div class='text-info'><%= "平均評価：#{@rating}" %></div>
+          </a>
+        </div>
+        <div class='col-sm-6'>
+          <a href='/users/<%= @review.user.id %>' class='btn btn-light'>
+              <% if @review.user.image? %>
+                <%= image_tag @review.user.image.user_thumb.url, class: 'rounded-circle' %>
+              <% else %>
+                <%= image_tag 'default.jpg', class: 'rounded-circle' %>
+              <% end %>
+            <%= @review.user.name%>
+          </a><br>
+          <a href="/reviews/<%= @review.id %>" class='btn btn-light'>
+            <h5 class='float-left mr-3'>評価：<%= @review.rating %></h5>
+            <h5 class='float-left'><%= @review.title %></h5><br>
+            <div class='float-left text-left'><%= @review.content.truncate(95) %></div>
+          </a>
+        </div>
+      </div>
   </div>
   <% if authority? %>
   <%= link_to '編集', edit_review_path(@review) %>

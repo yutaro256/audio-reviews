@@ -23,6 +23,8 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @item = @review.item
+    average_rating(@item)
   end
 
   def edit
