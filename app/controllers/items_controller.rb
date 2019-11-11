@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
       flash[:success] = '商品を登録しました'
       redirect_to @item
     else
-      flash[:danger] = '商品の登録に失敗しました'
+      flash.now[:danger] = '商品の登録に失敗しました'
       render :new
     end
   end
