@@ -1,7 +1,7 @@
 <div class='container'>
   <div>
     <% if @user.image? %>
-      <%= image_tag @user.image.url, class: 'rounded-circle' %>
+      <%= image_tag @user.image.user_thumb.url, class: 'rounded-circle' %>
     <% else %>
       <%= image_tag 'default.jpg', class: 'rounded-circle' %>
     <% end %>
@@ -16,7 +16,7 @@
       <%= link_to '気になるリスト', @user %>
     </li>
     <li class='nav-item nav-link active'>
-      <%= @user.name %>さんの投稿
+      <%= @user.name %>さんのレビュー
     </li>
   </ul>
   
