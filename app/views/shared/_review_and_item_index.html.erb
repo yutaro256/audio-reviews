@@ -24,7 +24,7 @@
         <div class='col-sm-6'>
           <a href='/users/<%= review.user.id %>' class='btn btn-default'>
               <% if review.user.image? %>
-                <%= image_tag review.user.image.url, class: 'rounded-circle' %>
+                <%= image_tag review.user.image.user_thumb.url, class: 'rounded-circle' %>
               <% else %>
                 <%= image_tag 'default.jpg', class: 'rounded-circle' %>
               <% end %>
