@@ -37,6 +37,6 @@
   </div>
   <% if authority? %>
   <%= link_to '編集', edit_review_path(@review) %>
-  <%= link_to '削除', review_path(@review), method: :delete %>
+  <%= link_to '削除', review_path(@review), method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
   <% end %>
 </div>
