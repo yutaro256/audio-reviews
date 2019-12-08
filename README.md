@@ -2,6 +2,8 @@
 ---
 Audio Reviews はアプリ上でアイテムの登録、登録されたアイテムに対してレビューを投稿出来る口コミアプリです。
 
+![demo](https://raw.github.com/wiki/yutaro256/audio-reviews/images/demo.gif)
+
 # 開発環境
 ---
 * ubuntu 18.04
