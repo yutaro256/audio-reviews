@@ -24,3 +24,18 @@ Audio Reviews はアプリ上でアイテムの登録、登録されたアイテ
 * アイテムの編集が可能な管理者アカウント
 * ユーザーに紐付けてアイテムをリストへ追加する機能（気になるリスト）
 * アイテム・レビュー・気になるリストの一覧表示とページネーション機能
+* サイト内検索機能
+
+
+# ローカルサーバー構築
+---
+audio-reviewsディレクトリ(docker-compose.ymlがあるディレクトリ)で次のコマンドを実行  
+
+`sudo mysql service stop`  
+`sudo docker-compose up -d`  
+`sudo docker-compose web rails db:create`  
+`sudo docker-compose web rails db:migrate`  
+
+localhost:3000にアクセス  
+
+終了時は  `sudo docker-compose down`
